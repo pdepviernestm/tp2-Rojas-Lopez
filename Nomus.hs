@@ -25,3 +25,18 @@ categoriaNomu nomu
     | fuerza nomu <= 10000 = "fuerte"
     | otherwise = "High-end"
 
+-- Parte 2
+
+entrenarNomu :: Nomu -> Nomu
+entrenarNomu nomu =
+    nomu { fuerza = fuerza nomu * 2000 }
+
+
+puedeIrALaGuerra :: [Nomu] -> Bool
+puedeIrALaGuerra ejercito =
+    all (\nomu -> fuerza nomu > 2500) (map entrenarNomu ejercito)
+
+
+esFuerte :: Nomu -> Bool
+esFuerte nomu =
+    fuerza nomu > 3000 && fuerza nomu <= 10000
