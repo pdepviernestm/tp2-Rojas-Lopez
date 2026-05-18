@@ -1,7 +1,6 @@
 module Library where
 import pdepreludat
 
-
 -- Parte 1
 
 data Nomu = UnNomu {
