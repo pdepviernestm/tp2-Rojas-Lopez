@@ -1,6 +1,9 @@
 module Library where
 import pdepreludat
 
+module Library where
+import PdePreludat
+
 -- Parte 1
 
 data Nomu = UnNomu {
@@ -12,17 +15,16 @@ data Nomu = UnNomu {
     fuerza :: Number
 } deriving (Show, Eq)
 
-
 puedeVer :: Nomu -> Bool
-puedeVer nomu = ojos nomu > 0
-
+puedeVer nomu =
+    ojos nomu > 0
 
 categoriaNomu :: Nomu -> String
 categoriaNomu nomu
     | fuerza nomu <= 1000 = "pichi"
-    | fuerza nomu < 3000 = "comun"
-    | fuerza nomu <= 10000 = "fuerte"
-    | otherwise = "High-end"
+    | fuerza nomu > 3000 && fuerza nomu < 10000 = "comun"
+    | fuerza nomu > 10000 = "high-end"
+
 
 -- Parte 2
 
